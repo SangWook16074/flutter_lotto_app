@@ -22,6 +22,7 @@ class _ResultViewState extends State<ResultView> {
     0,
   ];
 
+  var cnt = 0;
   var isDone = false;
   var isRunning = false;
   var currentNumber = 0;
@@ -47,8 +48,16 @@ class _ResultViewState extends State<ResultView> {
       await Future.delayed(const Duration(seconds: 1));
       setState(() {
         var randomNumber = Random().nextInt(44) + 1;
+
+        // ------------
+        // 여기에 난수를 겹치지 않게 넣을 수 있는 로직을 넣는 것 = 과제1
+        // ------------
         lottoNumbers[i] = randomNumber;
         currentNumber = randomNumber;
+
+        // ------------------------
+        // 내가 입력한 숫자와 생성된 난수를 비교한 결과를 cnt로 표현하기 = 과제2
+        // ------------------------
       });
       await Future.delayed(const Duration(seconds: 1));
     }
@@ -89,7 +98,7 @@ class _ResultViewState extends State<ResultView> {
       height: 100,
       child: Center(
         child: Text(
-          (!isDone) ? '당신의 행운력을 테스트 해보세요 !' : '끝',
+          (!isDone) ? '당신의 행운력을 테스트 해보세요 !' : '$cnt 개 맞췄음',
           style: const TextStyle(fontSize: 25),
         ),
       ),
