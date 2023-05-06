@@ -5,7 +5,8 @@ import 'package:flutter_lotto_number_generator/src/components/show_loading.dart'
 import 'package:flutter_lotto_number_generator/src/components/show_number_balls.dart';
 
 class ResultView extends StatefulWidget {
-  const ResultView({super.key});
+  final List arr;
+  const ResultView({super.key, required this.arr});
 
   @override
   State<ResultView> createState() => _ResultViewState();
