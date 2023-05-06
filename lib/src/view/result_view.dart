@@ -29,7 +29,7 @@ class _ResultViewState extends State<ResultView> {
 
   Future<void> _startProgress() async {
     setState(() {
-      isRunning != true;
+      isRunning = true;
     });
     await _generateRandomNumber();
     setState(() {
@@ -40,13 +40,16 @@ class _ResultViewState extends State<ResultView> {
 
   Future<void> _generateRandomNumber() async {
     for (int i = 0; i < lottoNumbers.length; i++) {
-      currentNumber = 0;
-      await Future.delayed(const Duration(seconds: 2));
+      setState(() {
+        currentNumber = 0;
+      });
+      await Future.delayed(const Duration(seconds: 1));
       setState(() {
         var randomNumber = Random().nextInt(44) + 1;
         lottoNumbers[i] = randomNumber;
         currentNumber = randomNumber;
       });
+      await Future.delayed(const Duration(seconds: 1));
     }
   }
 
@@ -97,7 +100,7 @@ class _ResultViewState extends State<ResultView> {
         ? const ShowLoading()
         : Text(
             '현재 숫자 $currentNumber',
-            style: const TextStyle(fontSize: 100),
+            style: const TextStyle(fontSize: 30),
           );
   }
 }

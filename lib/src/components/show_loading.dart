@@ -8,7 +8,7 @@ class ShowLoading extends StatelessWidget {
     return const SizedBox(
       height: 100,
       child: Center(
-        child: CircularProgressIndicator.adaptive(),
+        child: CircularProgressIndicator(),
       ),
     );
   }
