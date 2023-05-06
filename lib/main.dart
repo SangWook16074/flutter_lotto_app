@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'src/view/result_view.dart';
+import 'src/view/main_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ResultView(),
+      home: MainView(),
     );
   }
 }
